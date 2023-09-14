@@ -8,12 +8,31 @@ app = Flask(__name__)
 
 
 api = sensorbucket.ApiClient(sensorbucket.Configuration(
-    host="http://127.0.0.1:3000/api"
+    host="https://sensorbucket.pollex.dev/api",
 ))
 
 datastreams = [
-    "9b682284-850d-44f3-9ce2-d4451921bc61",
-    "76ee346f-e2e1-4bcd-8d7a-68a270e889bd"
+    "0164d3d9-d2ad-4c87-896c-129c084f4d21",
+    "97b35fcd-2baf-4e67-b00f-9b5417c45ad4",
+    "0f40ebb3-c1e5-4f62-906a-5ffb8e97a920",
+    "33fa454f-173e-4b95-9f85-c2259997cd6f",
+    "cce4430f-3928-4f6b-a234-8f54f58ad799",
+    "41b57f23-609d-4e95-b320-6f1c30b61d7d",
+    "f5d119be-ed4f-4384-bdbe-ad4c97620cfc",
+    "5e7cecb6-6320-4b70-82da-191269539efa",
+    "16dc693b-977e-429a-b83e-cbb62c0a6b99",
+    "b8ea3a74-1945-4380-a6c9-e7677c25b65f",
+    "b51a9836-7b35-47f4-aaab-8933a10b8030",
+    "96ebec07-4448-465c-a1a6-1870cc904d25",
+    "ba06014d-999e-4ad4-8744-cb6bbeee0210",
+    "269fa9f7-21c9-478f-8c2f-7608afc2b507",
+    "903ce467-ccfb-4f86-93db-e936be984b6d",
+    "afce796b-84b7-4588-a3b6-fe829ebc2cfa",
+    "9927b020-2257-4d4e-ad06-45383cb72e0c",
+    "5817f425-d6ed-4d66-a245-94ab900448eb",
+    "2c358222-e9f1-48ca-b564-ef662ccd3a73",
+    "74a28ef8-1ce8-486e-b921-76d6d596f4ae",
+    "bf673305-e285-4fac-9ccd-8cea8bf068ab",
 ]
 
 
@@ -140,7 +159,8 @@ def getCollectionItems(name):
                 "description": ds.device.description,
                 "sensor_desc": ds.sensor.description,
                 "timestamp": ds.measurement_timestamp.isoformat(),
-                "value": ds.measurement_value
+                "value": ds.measurement_value,
+                "ds": id
             }
         ))
     fc = geojson.FeatureCollection(features)
